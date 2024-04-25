@@ -70,6 +70,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <title>Art Service Form</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
 
 </head>
 <body>
@@ -79,7 +82,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <?php include 'header.php' ?>
   </header>
 
-  <div class="container mt-5">
+  <div class="animate__animated animate__slideInLeft container mt-5">
     <h2>Art Service Form</h2>
     <?php if (!empty($message)) echo '<div class="alert alert-info">' . $message . '</div>'; ?>
     <form class="mx-5 my-3" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
