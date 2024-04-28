@@ -16,7 +16,7 @@
   </header>
 
   <!-- Hero Section -->
-  <section id="hero" class="py-5" style="background-image: url('https://via.placeholder.com/1200x600');">
+  <section id="hero" class="py-5 animate__animated animate__backInUp" style="background-image: url('https://via.placeholder.com/1200x600');">
     <div class="container text-center text-white my-5">
       <h1>Welcome to XyWinArd</h1>
       <p class="lead">Experience the beauty of Traditional Graphite Arts</p>
@@ -26,7 +26,7 @@
 
   <!-- About Section -->
   <section id="about" class="bg-light py-5">
-    <div class="container py-5">
+    <div class="container animate__animated animate__backInUp py-5">
       <h2 class="text-center">About XyWinArd</h2>
       <p>XyWinArd is a haven for traditional graphite art lovers. We specialize in showcasing stunning artworks crafted with meticulous attention to detail using graphite pencils. Our gallery features a diverse collection of graphite masterpieces, from portraits to landscapes and more.</p>
       <p>Whether you're an art enthusiast, collector, or looking for inspiration, XyWinArd is the place to immerse yourself in the world of traditional graphite arts.</p>

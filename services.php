@@ -82,8 +82,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <?php include 'header.php' ?>
   </header>
 
-  <div class="animate__animated animate__slideInLeft container mt-5">
-    <h2>Art Service Form</h2>
+  <div class="animate__animated animate__slideInLeft container my-5">
+    <div class="card shadow">
+        <div class="card-body">
+    <h2>Art Service Form</h2><hr>
     <?php if (!empty($message)) echo '<div class="alert alert-info">' . $message . '</div>'; ?>
     <form class="mx-5 my-3" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
       
@@ -122,7 +124,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
       </div>
       
-      <!-- Service Information -->
+      <!-- Service Information --><hr>
       <div class="section-header">
         <h3>Service Information</h3>
       </div>
@@ -209,7 +211,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       
       
       
-      <!-- Payment Information -->
+      <!-- Payment Information --><hr>
       <div class="section-header">
         <h3>Payment Information</h3>
       </div>
@@ -241,7 +243,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
   </div>
-
+</div>
+</div></div>
   <!-- Include Footer -->
   <footer class="bg-dark text-white py-5">
     <!-- Include footer.html -->

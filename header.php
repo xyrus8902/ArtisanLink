@@ -8,12 +8,14 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 </head>
 
 <body>
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
+    <div class="container-fluid animate__animated animate__slideInDown">
       <a class="navbar-brand" href="#">XyWinArd</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -39,7 +41,7 @@
             <a class="nav-link" href="#about">About Us</a>
           </li>
           <li class="nav-item mx-5">
-            <a class="nav-link" href="#"><i class="fas fa-sign-in-alt"></i></a>
+            <a class="nav-link" href="login.php"><i class="fas fa-sign-in-alt"></i></a>
           </li>
         </ul>
       </div>
@@ -47,8 +49,8 @@
   </nav>
 
   <!-- Terms and Conditions Modal -->
-<div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+<div class="modal fade animate__animated animate__slideInDown" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="termsModalLabel">Terms and Conditions</h5>
@@ -57,15 +59,23 @@
         </button>
       </div>
       <div class="modal-body">
-        <!-- Add your terms and conditions here -->
-        <p>This is where your terms and conditions content goes.</p>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="acceptCheckbox">
-          <label class="form-check-label" for="acceptCheckbox">
-            I have read and agree to the terms and conditions
-          </label>
-        </div>
-      </div>
+  <p>By accepting these terms and conditions, you agree to the following:</p>
+  <ol class="text-justify">
+    <li class="py-2">You certify that all information provided by you is truthful and accurate.</li>
+    <li class="py-2">You agree to provide accurate and clear reference images for the creation of customized graphite and colored portrait arts.</li>
+    <li class="py-2">You acknowledge that customized portrait arts are handcrafted and may vary slightly from reference images due to artistic interpretation.</li>
+    <li class="py-2">You agree to respect the artist's creative process and refrain from requesting modifications that significantly deviate from the original agreement.</li>
+    <li class="py-2">You agree to fulfill orders promptly and accurately, providing necessary details such as size, framing preferences, and shipping address.</li>
+    <li class="py-2">Payment terms must be adhered to as agreed upon, including any deposit requirements or installment plans.</li>
+    <li class="py-2">In the event of any dispute or fraudulent activity, appropriate legal action may be taken against offenders.</li>
+  </ol>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" id="acceptCheckbox">
+    <label class="form-check-label" for="acceptCheckbox">
+      I have read and agree to the terms and conditions
+    </label>
+  </div>
+</div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary" id="acceptTermsBtn" disabled>Accept</button>
