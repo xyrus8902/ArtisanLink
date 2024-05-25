@@ -35,7 +35,7 @@
         <div class="row mx-5 justify-content-center">
             <div class="col-md-8">
                 <div class="card mobile-order">
-                    <div class="card-body">
+                    <div class="card-body bg-warning">
                         <h3 class="card-title text-center">Sign Up</h3>
                         <form action="signup_processing.php" method="POST">
     <div class="row">
