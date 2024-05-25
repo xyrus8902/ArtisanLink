@@ -11,11 +11,28 @@
                 order: -1;
             }
         }
+        
+        body {
+        background-image: url('bg.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed; /* Keeps the background fixed while scrolling */
+        font-size: 14px;
+    }
     </style>
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Xywinard</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
     <div class="container-fluid mt-5">
-        <div class="row mx-5 justify-content-center" style="margin-top: 10%;">
+        <div class="row mx-5 justify-content-center" style="margin-top: 7%;">
             <div class="col-md-6">
                 <div class="card mobile-order">
                     <div class="card-body">
@@ -35,17 +52,17 @@
                             <a href="#">Forgot your password?</a>
                         </div>
                         <div class="text-center mt-3">
-                            <p>Don't have an account? <a href="#">Sign Up</a></p>
+                            <p>Don't have an account? <a href="signup.php">Sign Up</a></p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-5 mx-3">
+            <div class="col-md-5 mx-3 py-5 px-5 card shadow-lg bg-light">
                 <h3>Welcome to Xywinard</h3>
                 <p>Empowering artists and creators through patronage.</p>
                 <p>Xywinard is a platform that connects artists with patrons to support arts and communications projects.</p>
                 <p>Whether you're an artist looking for support or a patron seeking to fund creative endeavors, Xywinard provides a space for collaboration and inspiration.</p>
-                <a href="index.php" class="btn btn-secondary">Back to Home</a>
+                <a href="index.php" class="btn btn-secondary" style="width: 200px;">Back to Home</a>
             </div>
         </div>
     </div>
