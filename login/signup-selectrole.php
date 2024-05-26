@@ -99,9 +99,9 @@
 <script>
     function selectRole(card) {
         var cardLinks = {
-            "card1": "signup.php",
-            "card2": "signup.php",
-            "card3": "signup.php"
+            "card1": "signup_patron.php",
+            "card2": "signup_artist.php",
+            "card3": "signup_mentor.php"
         };
 
         var selectedLink = cardLinks[card];

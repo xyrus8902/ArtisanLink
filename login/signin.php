@@ -133,7 +133,7 @@ $conn->close();
                 <p>Empowering artists and creators through patronage.</p>
                 <p>Xywinard is a platform that connects artists with patrons to support arts and communications projects.</p>
                 <p>Whether you're an artist looking for support or a patron seeking to fund creative endeavors, Xywinard provides a space for collaboration and inspiration.</p>
-                <a href="index.php" class="btn btn-secondary" style="width: 200px;">Back to Home</a>
+                <a href="../index.php" class="btn btn-secondary" style="width: 200px;">Back to Home</a>
             </div>
         </div>
     </div>
