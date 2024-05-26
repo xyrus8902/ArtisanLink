@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xywinard - Arts and Communications Platform</title>
+    <title>ArtisanLink - Arts and Communications Platform</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
@@ -22,7 +22,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Xywinard</a>
+            <a class="navbar-brand" href="#">ArtisanLink</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -47,9 +47,9 @@
 
     <div class="container-fluid py-5 px-5" style="background: linear-gradient(135deg, #FFFF00, #333333);" id="about">
         <div class="text-left">
-            <h1 class="display-4">Welcome to Xywinard</h1>
+            <h1 class="display-4">Welcome to ArtisanLink</h1>
             <p class="lead mx-3">Empowering artists and creators through patronage</p>
-            <p class="mx-3">Xywinard is a platform that connects artists with patrons to support arts and communications projects.</p>
+            <p class="mx-3">Artisan Link is a platform that connects artists with patrons to support arts and communications projects.</p>
             <p class="mx-3">Whether you're an artist looking for support or a patron seeking to fund creative endeavors, Xywinard provides a space for collaboration and inspiration.</p>
             <a class="btn btn-lg btn-danger text-white mx-3" href="#" role="button">Be Part of Us</a>
         </div>
@@ -195,7 +195,7 @@
                     </div>
                 <hr>
     <div class="col-md-12 mb-3 text-center">
-        <small class="text-light">Designed and developed by Xyrus Marvin Duyanen. &copy; <?php echo date("Y"); ?> Xywinard. All rights reserved.</small>
+        <small class="text-light">Designed and developed by Xyrus Marvin Duyanen. &copy; <?php echo date("Y"); ?> ArtisanLink. All rights reserved.</small>
     </div>
 
         </div>
