@@ -22,6 +22,14 @@
             background-attachment: fixed;
             font-size: 14px;
         }
+
+        .card {
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
     </style>
 </head>
 <body>
@@ -50,32 +58,33 @@
         <hr class="my-1">
         <h6 class="mb-3 mx-3">Select a role that you want to become part of:</h6>
         <div class="row">
-            <div class="col-md-6 mt-3 mb-3 shadow">
-                <div class="card text-center">
+            <div class="col-md-6 mt-3 mb-3 d-flex align-items-stretch">
+                <div class="card text-center" onclick="selectRole('card1')" style="background-color: #E8E4C9;">
                     <div class="card-body">
                         <h5 class="card-title">Patron</h5>
-                        <small class="card-text">Patrons, also known as Art Enthusiasts, are individuals who have a keen interest in supporting and promoting the arts. They provide financial support, commissions, and opportunities for artists to create and showcase their work.</small>
-                        <p style="font-weight: bold;"><a href="signup.php" onclick="selectRole('card1')">Select this role</a> and proceed to sign up form.</p>
+                        <p class="card-text">Patrons, also known as Art Enthusiasts, are individuals who have a keen interest in supporting and promoting the arts. They provide financial support, commissions, and opportunities for artists to create and showcase their work.</p>
+                        <a href="signup.php" class="btn btn-danger">SELECT THIS ROLE</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 mt-3 mb-3 shadow">
-                <div class="card text-center">
+            <div class="col-md-6 mt-3 mb-3 d-flex align-items-stretch">
+                <div class="card text-center" onclick="selectRole('card2')" style="background-color: #E8E4C9;">
                     <div class="card-body">
                         <h5 class="card-title">Artist</h5>
-                        <small class="card-text">Artists are creative individuals who produce visual, performing, or literary artworks. They fulfill commissions, engage with potential students, and communicate ideas, emotions, and perspectives through their creations.</small>
-                        <p style="font-weight: bold;"><a href="signup.php" onclick="selectRole('card2')">Select this role</a> and proceed to sign up form.</p>
+                        <p class="card-text mb-4">Artists are creative individuals who produce visual, performing, or literary artworks. They fulfill commissions, engage with potential students, and communicate ideas, emotions, and perspectives through their creations.</p>
+                        <a href="signup.php" class="btn btn-danger">SELECT THIS ROLE</a>
                     </div>
                 </div>
             </div>
         </div>
+
         <div class="row justify-content-center">
-            <div class="col-md-6 mt-3 mb-3 shadow">
-                <div class="card text-center">
+            <div class="col-md-6 mt-3 mb-3">
+                <div class="card text-center" onclick="selectRole('card3')" style="background-color: #E8E4C9;">
                     <div class="card-body">
                         <h5 class="card-title">Mentor</h5>
-                        <small class="card-text">Mentors are experienced individuals who provide guidance, support, and instruction to aspiring artists. They offer mentorship programs, workshops, and constructive feedback to aid in artistic growth and professional development.</small>
-                        <p style="font-weight: bold;"><a href="signup.php" onclick="selectRole('card3')">Select this role</a> and proceed to sign up form.</p>
+                        <p class="card-text">Mentors are experienced individuals who provide guidance, support, and instruction to aspiring artists. They offer mentorship programs, workshops, and constructive feedback to aid in artistic growth and professional development.</p>
+                        <a href="signup.php" class="btn btn-danger">SELECT THIS ROLE</a>
                     </div>
                 </div>
             </div>
