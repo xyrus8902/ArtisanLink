@@ -188,8 +188,8 @@
                     <div class="fs-6 mb-2"> Contact Us</div>
                         <ul class="list-group list-unstyled" style="font-size: 13px;">
                             <li class="list-item mb-1"><i class="fas fa-map-marker-alt me-2"></i> 673 Quirino Hwy, Novaliches, Quezon City</li>
-                            <li class="list-item mb-1"><i class="fas fa-phone me-2"></i> +63-9731-231-312</li>
-                            <li class="list-item mb-1"><i class="fas fa-envelope me-2"></i> eventmangementunit@gmail.com</li>
+                            <li class="list-item mb-1"><i class="fas fa-phone me-2"></i> +63-948</li>
+                            <li class="list-item mb-1"><i class="fas fa-envelope me-2"></i> xyrusmarvin.duyanen@gmail.com</li>
                             <li class="list-item mb-2"><i class="fab fa-facebook me-2"></i> eventmanagementunit</li>
                         </ul>
                     </div>
