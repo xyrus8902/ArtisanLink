@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         body {
-            background-color: #f8f9fa;
+            background-color: #eae7e6;
             font-size: 14px;
         }
         .content {
@@ -64,7 +64,7 @@
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img src="https://via.placeholder.com/30" class="rounded-circle mr-2" alt="Profile Image">John Doe (Artist)
+                        <img src="../../images/profpic.jpg" class="rounded-circle mr-2" style="width: 30px; height: 30px;" alt="Profile Image">Xyrus Marvin (Artist)
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="#">Edit Profile</a>
@@ -80,26 +80,31 @@
 
 <div class="content container-fluid mt-0">
     <div class="row mt-4">
-        <div class="col-md-5">
+        <div class="col-md-5 overflow-auto" style="max-height: 80vh;">
             <!-- Profile Card Section -->
             <div class="card">
                 <div class="card-body">
-                    <div class="profile-header">
-                        <div style="display: flex; align-items: center;">
-                            <img src="https://via.placeholder.com/150" alt="Profile Image">
-                            <div>
-                                <h4>Welcome, Xyrus Marvin!</h4>
-                                <p><strong>Email:</strong> Xyrus Marvin Duyanen</p>
-                                <p><strong>Location:</strong> 34 ROTC, Hunters St. Cluster 5, Tatalon, Quezon City</p>
-                            </div>
-                            <button class="btn btn-primary" style="margin-left: auto; margin-top: -100px;" data-toggle="tooltip" title="Edit profile">
-                                <i class="fas fa-edit mr-1"></i>
-                            </button>
-                        </div>
+                <div class="profile-header bg-light p-3 rounded">
+            <div class="row align-items-center">
+                <div class="col-12 col-sm-4 text-center text-sm-start mb-3 mb-sm-0">
+                    <img src="../../images/profpic.jpg" alt="Profile Image" class="img-fluid rounded-circle">
+                </div>
+                <div class="col-12 col-sm-8">
+                    <h5>Welcome, Xyrus Marvin!</h5>
+                        <p class="mx-3">I'm a passionate artist specializing in digital illustrations and character design. I love creating art that tells a story and brings characters to life.</p>
+                                <p class="mb-0 mx-1"><strong>Joined:</strong> January 2023</p>
+                    
+                    <div class="d-flex flex-row-reverse">
+                        <button class="btn btn-primary" data-bs-toggle="tooltip" title="Edit profile">
+                        <i class="fas fa-edit mr-1"></i> Edit Profile
+                    </button>
                     </div>
+                </div>
+            </div>
+        </div>
 
                     <!-- Tabbed Content Section -->
-                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <ul class="nav nav-tabs mx-3" id="myTab" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="true">Profile</a>
                         </li>
@@ -113,45 +118,95 @@
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                             <div class="p-3">
-                                <h5>About Me</h5>
-                                <p>I'm a passionate artist specializing in digital illustrations and character design. I love creating art that tells a story and brings characters to life.</p>
-                                <p><strong>Joined:</strong> January 2023</p>
-                            </div>
-                        </div>
-                        <!-- Add this code inside the tab-pane with id="portfolio" -->
-                        <div class="tab-pane fade" id="portfolio" role="tabpanel" aria-labelledby="portfolio-tab">
-                            <div class="container my-3">
-                                <div class="row">
-                                    <div class="col-md-4 mb-4">
-                                        <div class="card">
-                                            <img src="https://via.placeholder.com/200" class="card-img-top" alt="Portfolio Item 1" style="max-width: 100%; height: 150px;">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Portfolio Item 1</h5>
-                                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 mb-4">
-                                        <div class="card">
-                                            <img src="https://via.placeholder.com/200" class="card-img-top" alt="Portfolio Item 2" style="max-width: 100%; height: 150px;">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Portfolio Item 2</h5>
-                                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 mb-4">
-                                        <div class="card">
-                                            <img src="https://via.placeholder.com/200" class="card-img-top" alt="Portfolio Item 3" style="max-width: 100%; height: 150px;">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Portfolio Item 3</h5>
-                                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Add more portfolio items as needed -->
+                                <h5>Personal Information</h5>
+                                <p class="mb-0 mx-3"><strong><i class="fas fa-envelope"></i> :</strong> xyrusmarvin.duyanen@gmail.com</p>
+                                <p class="mb-0 mx-3"><strong><i class="fas fa-map-marker-alt"></i> :</strong> 34 ROTC, Hunters St. Cluster 5, Tatalon, Quezon City</p>
+                                <p class="my-0 mx-3"><strong><i class="fas fa-phone"></i> :</strong> +63XXXXXXXXXX</p>
+                           
+                                <!-- Social Media Links -->
+                                <div class="text-center">
+                                    <p class="my-0"><strong>Social Media:</strong></p>
+                                    <ul class="list-inline mx-3 d-inline-block">
+                                        <li class="list-inline-item"><a href="https://www.facebook.com/xyrusmarvin.duyanen"><i class="fab fa-facebook" style="color: #3b5998;"></i></a></li>
+                                        <li class="list-inline-item"><a href="https://www.instagram.com/xyrusmarvin"><i class="fab fa-instagram" style="color: #e4405f;"></i></a></li>
+                                        <li class="list-inline-item"><a href="https://twitter.com/xyrusmarvin"><i class="fab fa-twitter" style="color: #1da1f2;"></i></a></li>
+                                        <!-- Idagdag ang iba pang social media links dito kung meron -->
+                                    </ul>
                                 </div>
                             </div>
+                        </div>
+
+                        <!-- Add this code inside the tab-pane with id="portfolio" -->
+                        <div class="tab-pane fade" id="portfolio" role="tabpanel" aria-labelledby="portfolio-tab">
+                        <div class="row">
+        <div class="col-md-4">
+            <div class="card mb-3">
+                <img src="https://via.placeholder.com/150" class="card-img-top" style="height: 180px;" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title my-0">Card 1</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-3">
+                <img src="https://via.placeholder.com/150" class="card-img-top" style="height: 180px;" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title my-0">Card 2</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-3">
+                <img src="https://via.placeholder.com/150" class="card-img-top" style="height: 180px;" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title my-0">Card 3</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-3">
+                <img src="https://via.placeholder.com/150" class="card-img-top" style="height: 180px;" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title my-0">Card 3</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-3">
+                <img src="https://via.placeholder.com/150" class="card-img-top" style="height: 180px;" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title my-0">Card 3</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-3">
+                <img src="https://via.placeholder.com/150" class="card-img-top" style="height: 180px;" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title my-0">Card 3</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-3">
+                <img src="https://via.placeholder.com/150" class="card-img-top" style="height: 180px;" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title my-0">Card 3</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-3">
+                <img src="https://via.placeholder.com/150" class="card-img-top" style="height: 180px;" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title my-0">Card 3</h5>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add more cards here if needed -->
+    </div>
+
                         </div>
 
                         <div class="tab-pane fade" id="skills" role="tabpanel" aria-labelledby="skills-tab">
@@ -207,25 +262,67 @@
                                 <p class="card-text">We're excited to announce the launch of our new real-time collaboration feature! Now you can collaborate with other artists on projects in real-time, making the creative process more seamless than ever.</p>
                             </div>
                         </div>
-                        
                     </div>
                 </div>
                 <div class="col-md-7">
-    <h4 class="mb-0"><i class="fas fa-user-friends"></i> Co-Artists</h4> <hr class="my-1">
-    <div class="list-group">
-        <a href="#" class="list-group-item list-group-item-action">
-            <img src="https://via.placeholder.com/50" alt="Jane Doe" class="rounded-circle mr-2" style="width: 50px; height: 50px;">
-            <strong>Jane Doe</strong> - Illustrator
-        </a>
-        <a href="#" class="list-group-item list-group-item-action">
-            <img src="https://via.placeholder.com/50" alt="John Smith" class="rounded-circle mr-2" style="width: 50px; height: 50px;">
-            <strong>John Smith</strong> - Animator
-        </a>
-        <!-- Add more co-artist entries as needed -->
-    </div>
-</div>
+                    <h4 class="mb-0"><i class="fas fa-user-friends"></i> Other Artists</h4> <hr class="my-1">
+                    <div class="list-group overflow-auto" style="max-height: 50vh;">
+                        <div class="list-group-item">
+                            <img src="https://via.placeholder.com/50" alt="Jane Doe" class="rounded-circle mr-2" style="width: 50px; height: 50px;">
+                            <strong>Jenwyn Angelica</strong> - Illustrator
+                            <button type="button" class="btn btn-info float-right"><i class="fas fa-eye"></i></button>
+                        </div>
+                        <div class="list-group-item">
+                            <img src="https://via.placeholder.com/50" alt="John Smith" class="rounded-circle mr-2" style="width: 50px; height: 50px;">
+                            <strong>Sam Lennard</strong> - Animator
+                            <button type="button" class="btn btn-info float-right"><i class="fas fa-eye"></i></button>
+                        </div>
+                        <div class="list-group-item">
+                            <img src="https://via.placeholder.com/50" alt="Mary Johnson" class="rounded-circle mr-2" style="width: 50px; height: 50px;">
+                            <strong>Mary An</strong> - Graphic Designer
+                            <button type="button" class="btn btn-info float-right"><i class="fas fa-eye"></i></button>
+                        </div>
+                        <div class="list-group-item">
+                            <img src="https://via.placeholder.com/50" alt="David Brown" class="rounded-circle mr-2" style="width: 50px; height: 50px;">
+                            <strong>David Brown</strong> - Photographer
+                            <button type="button" class="btn btn-info float-right"><i class="fas fa-eye"></i></button>
+                        </div>
+                        <div class="list-group-item">
+                            <img src="https://via.placeholder.com/50" alt="Emily White" class="rounded-circle mr-2" style="width: 50px; height: 50px;">
+                            <strong>Emily White</strong> - Sculptor
+                            <button type="button" class="btn btn-info float-right"><i class="fas fa-eye"></i></button>
+                        </div>
+                        <div class="list-group-item">
+                            <img src="https://via.placeholder.com/50" alt="Michael Green" class="rounded-circle mr-2" style="width: 50px; height: 50px;">
+                            <strong>Michael Green</strong> - Web Designer
+                            <button type="button" class="btn btn-info float-right"><i class="fas fa-eye"></i></button>
+                        </div>
+                        <div class="list-group-item">
+                            <img src="https://via.placeholder.com/50" alt="Sarah Black" class="rounded-circle mr-2" style="width: 50px; height: 50px;">
+                            <strong>Sarah Black</strong> - Painter
+                            <button type="button" class="btn btn-info float-right"><i class="fas fa-eye"></i></button>
+                        </div>
+                        <div class="list-group-item">
+                            <img src="https://via.placeholder.com/50" alt="Matthew Gray" class="rounded-circle mr-2" style="width: 50px; height: 50px;">
+                            <strong>Matthew Gray</strong> - Fashion Designer
+                            <button type="button" class="btn btn-info float-right"><i class="fas fa-eye"></i></button>
+                        </div>
+                        <div class="list-group-item">
+                            <img src="https://via.placeholder.com/50" alt="Olivia Brown" class="rounded-circle mr-2" style="width: 50px; height: 50px;">
+                            <strong>Olivia Brown</strong> - Film Director
+                            <button type="button" class="btn btn-info float-right"><i class="fas fa-eye"></i></button>
+                        </div>
+                        <div class="list-group-item">
+                            <img src="https://via.placeholder.com/50" alt="Daniel Johnson" class="rounded-circle mr-2" style="width: 50px; height: 50px;">
+                            <strong>Daniel Johnson</strong> - Musician
+                            <button type="button" class="btn btn-info float-right"><i class="fas fa-eye"></i></button>
+                        </div>
+                    </div>
 
+        <!-- Add more co-artist entries as needed -->
+                </div>
             </div>
+        </div>
 
 
 
