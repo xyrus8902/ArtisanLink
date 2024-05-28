@@ -80,7 +80,7 @@
 
 <div class="content container-fluid mt-0">
     <div class="row mt-4">
-        <div class="col-md-5 overflow-auto" style="max-height: 80vh;">
+        <div class="col-md-5 my-3 overflow-auto" style="max-height: 80vh;">
             <!-- Profile Card Section -->
             <div class="card">
                 <div class="card-body">
@@ -270,52 +270,52 @@
                         <div class="list-group-item">
                             <img src="https://via.placeholder.com/50" alt="Jane Doe" class="rounded-circle mr-2" style="width: 50px; height: 50px;">
                             <strong>Jenwyn Angelica</strong> - Illustrator
-                            <button type="button" class="btn btn-info float-right"><i class="fas fa-eye"></i></button>
+                            <button type="button" class="btn btn-info float-right" ><i class="fas fa-eye"></i></button>
                         </div>
                         <div class="list-group-item">
                             <img src="https://via.placeholder.com/50" alt="John Smith" class="rounded-circle mr-2" style="width: 50px; height: 50px;">
                             <strong>Sam Lennard</strong> - Animator
-                            <button type="button" class="btn btn-info float-right"><i class="fas fa-eye"></i></button>
+                            <button type="button" class="btn btn-info float-right" data-bs-toggle="tooltip" title="View Profile"><i class="fas fa-eye"></i></button>
                         </div>
                         <div class="list-group-item">
                             <img src="https://via.placeholder.com/50" alt="Mary Johnson" class="rounded-circle mr-2" style="width: 50px; height: 50px;">
                             <strong>Mary An</strong> - Graphic Designer
-                            <button type="button" class="btn btn-info float-right"><i class="fas fa-eye"></i></button>
+                            <button type="button" class="btn btn-info float-right" data-bs-toggle="tooltip" title="View Profile"><i class="fas fa-eye"></i></button>
                         </div>
                         <div class="list-group-item">
                             <img src="https://via.placeholder.com/50" alt="David Brown" class="rounded-circle mr-2" style="width: 50px; height: 50px;">
                             <strong>David Brown</strong> - Photographer
-                            <button type="button" class="btn btn-info float-right"><i class="fas fa-eye"></i></button>
+                            <button type="button" class="btn btn-info float-right" data-bs-toggle="tooltip" title="View Profile"><i class="fas fa-eye"></i></button>
                         </div>
                         <div class="list-group-item">
                             <img src="https://via.placeholder.com/50" alt="Emily White" class="rounded-circle mr-2" style="width: 50px; height: 50px;">
                             <strong>Emily White</strong> - Sculptor
-                            <button type="button" class="btn btn-info float-right"><i class="fas fa-eye"></i></button>
+                            <button type="button" class="btn btn-info float-right" data-bs-toggle="tooltip" title="View Profile"><i class="fas fa-eye"></i></button>
                         </div>
                         <div class="list-group-item">
                             <img src="https://via.placeholder.com/50" alt="Michael Green" class="rounded-circle mr-2" style="width: 50px; height: 50px;">
                             <strong>Michael Green</strong> - Web Designer
-                            <button type="button" class="btn btn-info float-right"><i class="fas fa-eye"></i></button>
+                            <button type="button" class="btn btn-info float-right" data-bs-toggle="tooltip" title="View Profile"><i class="fas fa-eye"></i></button>
                         </div>
                         <div class="list-group-item">
                             <img src="https://via.placeholder.com/50" alt="Sarah Black" class="rounded-circle mr-2" style="width: 50px; height: 50px;">
                             <strong>Sarah Black</strong> - Painter
-                            <button type="button" class="btn btn-info float-right"><i class="fas fa-eye"></i></button>
+                            <button type="button" class="btn btn-info float-right" data-bs-toggle="tooltip" title="View Profile"><i class="fas fa-eye"></i></button>
                         </div>
                         <div class="list-group-item">
                             <img src="https://via.placeholder.com/50" alt="Matthew Gray" class="rounded-circle mr-2" style="width: 50px; height: 50px;">
                             <strong>Matthew Gray</strong> - Fashion Designer
-                            <button type="button" class="btn btn-info float-right"><i class="fas fa-eye"></i></button>
+                            <button type="button" class="btn btn-info float-right" data-bs-toggle="tooltip" title="View Profile"><i class="fas fa-eye"></i></button>
                         </div>
                         <div class="list-group-item">
                             <img src="https://via.placeholder.com/50" alt="Olivia Brown" class="rounded-circle mr-2" style="width: 50px; height: 50px;">
                             <strong>Olivia Brown</strong> - Film Director
-                            <button type="button" class="btn btn-info float-right"><i class="fas fa-eye"></i></button>
+                            <button type="button" class="btn btn-info float-right" data-bs-toggle="tooltip" title="View Profile"><i class="fas fa-eye"></i></button>
                         </div>
                         <div class="list-group-item">
                             <img src="https://via.placeholder.com/50" alt="Daniel Johnson" class="rounded-circle mr-2" style="width: 50px; height: 50px;">
                             <strong>Daniel Johnson</strong> - Musician
-                            <button type="button" class="btn btn-info float-right"><i class="fas fa-eye"></i></button>
+                            <button type="button" class="btn btn-info float-right" data-bs-toggle="tooltip" title="View Profile"><i class="fas fa-eye"></i></button>
                         </div>
                     </div>
 
