@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Artist Dashboard - ArtisanLink</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         body {
             background-color: #f8f9fa;
@@ -79,20 +80,22 @@
 
 <div class="content container-fluid mt-0">
     <div class="row mt-4">
-        <!-- Profile Card Section -->
-        <div class="col-md-12 mb-4">
+        <div class="col-md-5">
+            <!-- Profile Card Section -->
             <div class="card">
                 <div class="card-body">
                     <div class="profile-header">
                         <div style="display: flex; align-items: center;">
                             <img src="https://via.placeholder.com/150" alt="Profile Image">
                             <div>
-                                <h4>John Doe</h4>
-                                <p><strong>Email:</strong> johndoe@example.com</p>
-                                <p><strong>Location:</strong> New York, USA</p>
+                                <h4>Welcome, Xyrus Marvin!</h4>
+                                <p><strong>Email:</strong> Xyrus Marvin Duyanen</p>
+                                <p><strong>Location:</strong> 34 ROTC, Hunters St. Cluster 5, Tatalon, Quezon City</p>
                             </div>
+                            <button class="btn btn-primary" style="margin-left: auto; margin-top: -100px;" data-toggle="tooltip" title="Edit profile">
+                                <i class="fas fa-edit mr-1"></i>
+                            </button>
                         </div>
-                        <button class="btn btn-primary" style="margin-left: auto; margin-top: -100px;">Edit Profile</button>
                     </div>
 
                     <!-- Tabbed Content Section -->
@@ -117,11 +120,11 @@
                         </div>
                         <!-- Add this code inside the tab-pane with id="portfolio" -->
                         <div class="tab-pane fade" id="portfolio" role="tabpanel" aria-labelledby="portfolio-tab">
-                            <div class="container">
+                            <div class="container my-3">
                                 <div class="row">
                                     <div class="col-md-4 mb-4">
                                         <div class="card">
-                                            <img src="https://via.placeholder.com/200" class="card-img-top" alt="Portfolio Item 1" style="max-width: 100%; height: 300px;">
+                                            <img src="https://via.placeholder.com/200" class="card-img-top" alt="Portfolio Item 1" style="max-width: 100%; height: 150px;">
                                             <div class="card-body">
                                                 <h5 class="card-title">Portfolio Item 1</h5>
                                                 <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
@@ -130,7 +133,7 @@
                                     </div>
                                     <div class="col-md-4 mb-4">
                                         <div class="card">
-                                            <img src="https://via.placeholder.com/200" class="card-img-top" alt="Portfolio Item 2" style="max-width: 100%; height: 300px;">
+                                            <img src="https://via.placeholder.com/200" class="card-img-top" alt="Portfolio Item 2" style="max-width: 100%; height: 150px;">
                                             <div class="card-body">
                                                 <h5 class="card-title">Portfolio Item 2</h5>
                                                 <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
@@ -139,7 +142,7 @@
                                     </div>
                                     <div class="col-md-4 mb-4">
                                         <div class="card">
-                                            <img src="https://via.placeholder.com/200" class="card-img-top" alt="Portfolio Item 3" style="max-width: 100%; height: 300px;">
+                                            <img src="https://via.placeholder.com/200" class="card-img-top" alt="Portfolio Item 3" style="max-width: 100%; height: 150px;">
                                             <div class="card-body">
                                                 <h5 class="card-title">Portfolio Item 3</h5>
                                                 <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
@@ -164,36 +167,68 @@
         </div>
 
         <!-- Dashboard Cards -->
-        <div class="col-md-4">
-            <div class="card text-white bg-primary mb-3">
-                <div class="card-header">Finished Artworks</div>
-                <div class="card-body">
-                    <h5 class="card-title">10</h5>
-                    <p class="card-text">You have completed 10 drawings.</p>
+        <div class="col-md-7">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card text-white bg-primary mb-3">
+                        <div class="card-header"><i class="fas fa-check-circle"></i> Finished Artworks</div>
+                        <div class="card-body">
+                            <h5 class="card-title">10</h5>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card text-white bg-warning mb-3">
+                        <div class="card-header"><i class="fas fa-exclamation-triangle"></i> Pending Requests</div>
+                        <div class="card-body">
+                            <h5 class="card-title">5</h5>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card text-white bg-success mb-3">
+                        <div class="card-header"><i class="fas fa-star"></i> Ratings</div>
+                        <div class="card-body">
+                            <h5 class="card-title">4.5/5</h5>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        
-        <div class="col-md-4">
-            <div class="card text-white bg-warning mb-3">
-                <div class="card-header">Pending Requests</div>
-                <div class="card-body">
-                    <h5 class="card-title">5</h5>
-                    <p class="card-text">You have 5 pending requests.</p>
+
+            <div class="row my-3">
+                <div class="col-md-5">
+                    <h4 class="mb-0"><i class="fas fa-bullhorn"></i> Announcement!</h4> <hr class="my-1">
+                    <div class="card-deck">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">New Feature: Real-Time Collaboration</h5>
+                                <p class="card-text">We're excited to announce the launch of our new real-time collaboration feature! Now you can collaborate with other artists on projects in real-time, making the creative process more seamless than ever.</p>
+                            </div>
+                        </div>
+                        
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card text-white bg-success mb-3">
-                <div class="card-header">Ratings</div>
-                <div class="card-body">
-                    <h5 class="card-title">4.5/5</h5>
-                    <p class="card-text">Your current rating is 4.5 out of 5.</p>
-                </div>
-            </div>
-        </div>
+                <div class="col-md-7">
+    <h4 class="mb-0"><i class="fas fa-user-friends"></i> Co-Artists</h4> <hr class="my-1">
+    <div class="list-group">
+        <a href="#" class="list-group-item list-group-item-action">
+            <img src="https://via.placeholder.com/50" alt="Jane Doe" class="rounded-circle mr-2" style="width: 50px; height: 50px;">
+            <strong>Jane Doe</strong> - Illustrator
+        </a>
+        <a href="#" class="list-group-item list-group-item-action">
+            <img src="https://via.placeholder.com/50" alt="John Smith" class="rounded-circle mr-2" style="width: 50px; height: 50px;">
+            <strong>John Smith</strong> - Animator
+        </a>
+        <!-- Add more co-artist entries as needed -->
     </div>
 </div>
+
+            </div>
+
+
+
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
