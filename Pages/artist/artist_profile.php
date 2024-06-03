@@ -9,7 +9,7 @@
     <style>
         body {
             background-color: #eae7e6;
-            font-size: 14px;
+            font-size: 12px;
         }
         .content {
             padding: 20px;
@@ -34,53 +34,21 @@
         .profile-header h4 {
             margin-top: 0;
         }
+        .asd {
+            color: black !important;
+        }
+        .asd.active {
+            color: red !important;
+        }
     </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container-fluid">
-        <a class="navbar-brand mx-5" href="index.html">ArtisanLink</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav" style="padding-left: 50px;">
-                <li class="nav-item">
-                    <a class="nav-link" href="">My Profile</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="artist_patronage.html">Patronage</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="artist_system_updates.html">Ticket Transactions</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="artist_mentor_offers.html">Mentor Offers</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="artist_my_courses.html">My Courses</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img src="../../images/profpic.jpg" class="rounded-circle mr-2" style="width: 30px; height: 30px;" alt="Profile Image">Xyrus Marvin (Artist)
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Edit Profile</a>
-                        <a class="dropdown-item" href="#">Help Desk</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="login/signin.html">Logout</a>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
 
-<div class="content container-fluid mt-0">
+<?php include '../../header/artist_header.php'; ?>
+
+<div class="content container-fluid px-5 mt-0">
     <div class="row mt-4">
-        <div class="col-md-5 my-3 overflow-auto" style="max-height: 80vh;">
+        <div class="col-lg-5 mb-3 overflow-auto" style="max-height: 80vh;">
             <!-- Profile Card Section -->
             <div class="card">
                 <div class="card-body">
@@ -95,9 +63,7 @@
                                 <p class="mb-0 mx-1"><strong>Joined:</strong> January 2023</p>
                     
                     <div class="d-flex flex-row-reverse">
-                        <button class="btn btn-primary" data-bs-toggle="tooltip" title="Edit profile">
-                        <i class="fas fa-edit mr-1"></i> Edit Profile
-                    </button>
+                        <button class="btn btn-danger" data-bs-toggle="tooltip" title="Edit profile"><i class="fas fa-edit mr-1"></i></button>
                     </div>
                 </div>
             </div>
@@ -106,13 +72,13 @@
                     <!-- Tabbed Content Section -->
                     <ul class="nav nav-tabs mx-3" id="myTab" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="true">Profile</a>
+                            <a class="nav-link asd active" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="true">Profile</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="portfolio-tab" data-toggle="tab" href="#portfolio" role="tab" aria-controls="portfolio" aria-selected="false">Portfolio</a>
+                            <a class="nav-link asd" id="portfolio-tab" data-toggle="tab" href="#portfolio" role="tab" aria-controls="portfolio" aria-selected="false">Portfolio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="skills-tab" data-toggle="tab" href="#skills" role="tab" aria-controls="skills" aria-selected="false">Skills</a>
+                            <a class="nav-link asd" id="skills-tab" data-toggle="tab" href="#skills" role="tab" aria-controls="skills" aria-selected="false">Skills</a>
                         </li>
                     </ul>
                     <div class="tab-content" id="myTabContent">
@@ -122,6 +88,10 @@
                                 <p class="mb-0 mx-3"><strong><i class="fas fa-envelope"></i> :</strong> xyrusmarvin.duyanen@gmail.com</p>
                                 <p class="mb-0 mx-3"><strong><i class="fas fa-map-marker-alt"></i> :</strong> 34 ROTC, Hunters St. Cluster 5, Tatalon, Quezon City</p>
                                 <p class="my-0 mx-3"><strong><i class="fas fa-phone"></i> :</strong> +63XXXXXXXXXX</p>
+                                <p class="my-0 mx-3"><strong><i class="fas fa-birthday-cake"></i> :</strong> August 9, 2002</p>
+                                <p class="my-0 mx-3"><strong><i class="fas fa-venus-mars"></i> :</strong> Male</p>
+                                <p class="my-0 mx-3"><strong><i class="fas fa-user"></i> :</strong> Single</p>
+                                <p class="my-0 mx-3"><strong><i class="fas fa-passport"></i> :</strong> Filipino</p>
                            
                                 <!-- Social Media Links -->
                                 <div class="text-center">
@@ -137,76 +107,63 @@
                         </div>
 
                         <!-- Add this code inside the tab-pane with id="portfolio" -->
-                        <div class="tab-pane fade" id="portfolio" role="tabpanel" aria-labelledby="portfolio-tab">
-                        <div class="row">
-        <div class="col-md-4">
-            <div class="card mb-3">
-                <img src="https://via.placeholder.com/150" class="card-img-top" style="height: 180px;" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title my-0">Card 1</h5>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card mb-3">
-                <img src="https://via.placeholder.com/150" class="card-img-top" style="height: 180px;" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title my-0">Card 2</h5>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card mb-3">
-                <img src="https://via.placeholder.com/150" class="card-img-top" style="height: 180px;" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title my-0">Card 3</h5>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card mb-3">
-                <img src="https://via.placeholder.com/150" class="card-img-top" style="height: 180px;" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title my-0">Card 3</h5>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card mb-3">
-                <img src="https://via.placeholder.com/150" class="card-img-top" style="height: 180px;" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title my-0">Card 3</h5>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card mb-3">
-                <img src="https://via.placeholder.com/150" class="card-img-top" style="height: 180px;" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title my-0">Card 3</h5>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card mb-3">
-                <img src="https://via.placeholder.com/150" class="card-img-top" style="height: 180px;" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title my-0">Card 3</h5>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card mb-3">
-                <img src="https://via.placeholder.com/150" class="card-img-top" style="height: 180px;" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title my-0">Card 3</h5>
-                </div>
-            </div>
-        </div>
-
-        <!-- Add more cards here if needed -->
-    </div>
-
+                        <div class="tab-pane fade overflow-auto" style="max-height: 36vh;" id="portfolio" role="tabpanel" aria-labelledby="portfolio-tab">
+                            <div class="card">
+                                <div class="row no-gutters">
+                                    <div class="col-md-4">
+                                        <img src="https://via.placeholder.com/150" class="card-img" alt="Image">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card Title</h5>
+                                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="row no-gutters">
+                                    <div class="col-md-4">
+                                        <img src="https://via.placeholder.com/150" class="card-img" alt="Image">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card Title</h5>
+                                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="row no-gutters">
+                                    <div class="col-md-4">
+                                        <img src="https://via.placeholder.com/150" class="card-img" alt="Image">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card Title</h5>
+                                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="row no-gutters">
+                                    <div class="col-md-4">
+                                        <img src="https://via.placeholder.com/150" class="card-img" alt="Image">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card Title</h5>
+                                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="tab-pane fade" id="skills" role="tabpanel" aria-labelledby="skills-tab">
@@ -222,50 +179,83 @@
         </div>
 
         <!-- Dashboard Cards -->
-        <div class="col-md-7">
+        <div class="col-lg-7">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-sm-6 col-md-6 col-lg-6 col-xl-3 text-center">
                     <div class="card text-white bg-primary mb-3">
-                        <div class="card-header"><i class="fas fa-check-circle"></i> Finished Artworks</div>
+                        <small class="card-header font-weight-bold"><i class="fas fa-check-circle"></i> Finished Artworks</small>
                         <div class="card-body">
-                            <h5 class="card-title">10</h5>
+                            <h5 class="card-title my-0">10</h5>
                         </div>
                     </div>
                 </div>
                 
-                <div class="col-md-4">
+                <div class="col-sm-6 col-md-6 col-lg-6 col-xl-3 text-center">
                     <div class="card text-white bg-warning mb-3">
-                        <div class="card-header"><i class="fas fa-exclamation-triangle"></i> Pending Requests</div>
+                        <small class="card-header font-weight-bold"><i class="fas fa-exclamation-triangle"></i> Pending Offers</small>
                         <div class="card-body">
-                            <h5 class="card-title">5</h5>
+                            <h5 class="card-title my-0">5</h4>
                         </div>
                     </div>
                 </div>
                 
-                <div class="col-md-4">
-                    <div class="card text-white bg-success mb-3">
-                        <div class="card-header"><i class="fas fa-star"></i> Ratings</div>
+                <div class="col-sm-6 col-md-6 col-lg-6 col-xl-3 text-center">
+                    <div class="card text-white bg-danger mb-3">
+                        <small class="card-header font-weight-bold"><i class="fas fa-clock"></i> Commissions</small>
                         <div class="card-body">
-                            <h5 class="card-title">4.5/5</h5>
+                            <h5 class="card-title my-0">9</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-6 col-lg-6 col-xl-3 text-center">
+                    <div class="card text-white bg-success mb-3">
+                        <small class="card-header font-weight-bold"><i class="fas fa-star"></i> Ratings</small>
+                        <div class="card-body">
+                            <h5 class="card-title my-0">4.5/5</h5>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="row my-3">
-                <div class="col-md-5">
-                    <h4 class="mb-0"><i class="fas fa-bullhorn"></i> Announcement!</h4> <hr class="my-1">
-                    <div class="card-deck">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">New Feature: Real-Time Collaboration</h5>
-                                <p class="card-text">We're excited to announce the launch of our new real-time collaboration feature! Now you can collaborate with other artists on projects in real-time, making the creative process more seamless than ever.</p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="col-lg-5">
+                    <h5 class="mb-0"><i class="fas fa-bullhorn"></i> Announcement!</h5> <hr class="my-1">
+                    <div class="overflow-auto mb-5" style="max-height: 50vh;">
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title">New Feature: Real-Time Collaboration</h6>
+                <p class="card-text">We're excited to announce the launch of our new real-time collaboration feature! Now you can collaborate with other artists on projects in real-time, making the creative process more seamless than ever.</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title">Enhanced Security Measures</h6>
+                <p class="card-text">We've bolstered our security protocols to ensure your data remains safe and protected. Your privacy is our priority.</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title">Expanded Resource Library</h6>
+                <p class="card-text">Introducing an extensive collection of new resources to inspire your creativity and fuel your projects. Access a wealth of materials at your fingertips.</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title">Improved User Interface</h6>
+                <p class="card-text">Experience a sleeker, more intuitive user interface designed to streamline your workflow and enhance your overall user experience.</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title">Exclusive Membership Benefits</h6>
+                <p class="card-text">Unlock exclusive perks and benefits by becoming a member. Enjoy priority access to new features, special discounts, and more.</p>
+            </div>
+        </div>
+    </div>
                 </div>
-                <div class="col-md-7">
-                    <h4 class="mb-0"><i class="fas fa-user-friends"></i> Other Artists</h4> <hr class="my-1">
+                <div class="col-lg-7">
+                    <h5 class="mb-0"><i class="fas fa-user-friends"></i> Other Artists</h5> <hr class="my-1">
                     <div class="list-group overflow-auto" style="max-height: 50vh;">
                         <div class="list-group-item">
                             <img src="https://via.placeholder.com/50" alt="Jane Doe" class="rounded-circle mr-2" style="width: 50px; height: 50px;">
@@ -322,13 +312,41 @@
         <!-- Add more co-artist entries as needed -->
                 </div>
             </div>
+            </div></div></div>
+
+        <footer>
+    <div class="container-fluid bg-dark">
+        <div class="col-10 text-white m-auto ">
+            <div class="row g-6">
+                <div class="col-md-8 mt-4 ">
+                    <span><img src="../../images/QCU Logo.png" alt="" class="img-fluid mb-2 me-2" style="max-width: 40px;"></span>
+                    <span class="fs-6">Artisan Link</span>
+
+                    <div>
+                        <p class="mt-1 col-lg-9 col-12" style="font-size: 13px;">The Quezon City University Event Management System optimizes event planning, execution, and evaluation processes, fostering seamless collaboration and engagement within the university community.
+                    </div>
+                </div>
+                <div class="col-md-4 mt-4 m-auto justify-content-center">
+                    <div class="fs-6 mb-2"> Contact Us</div>
+                        <ul class="list-group list-unstyled" style="font-size: 13px;">
+                            <li class="list-item mb-1"><i class="fas fa-map-marker-alt me-2"></i> 673 Quirino Hwy, Novaliches, Quezon City</li>
+                            <li class="list-item mb-1"><i class="fas fa-phone me-2"></i> +63-948</li>
+                            <li class="list-item mb-1"><i class="fas fa-envelope me-2"></i> xyrusmarvin.duyanen@gmail.com</li>
+                            <li class="list-item mb-2"><i class="fab fa-facebook me-2"></i> eventmanagementunit</li>
+                        </ul>
+                    </div>
+                <hr>
+    <div class="col-md-12 mb-3 text-center">
+        <small class="text-light">Designed and developed by Xyrus Marvin Duyanen. &copy; <?php echo date("Y"); ?> ArtisanLink. All rights reserved.</small>
+    </div>
+
         </div>
-
-
-
+    </div>
+    </footer>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </body>
 </html>
