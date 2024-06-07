@@ -37,6 +37,7 @@ $result = $conn->query($sql);
     <title>Patron Requests</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simplePagination.js/1.6/simplePagination.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
             font-size: 12px;
@@ -158,7 +159,7 @@ $result = $conn->query($sql);
         <h5 class="mb-0">Patron Requests</h5>
             <form method="GET" action="">
                     <div class="form-row">
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-md-4 col-sm-4 col-8">
                             <label for="categoryFilter">This section displays the requests of our patronage.</label>
                             <select id="categoryFilter" name="category" class="form-control">
                                 <option value="">All Categories</option>
@@ -167,13 +168,13 @@ $result = $conn->query($sql);
                                 <option value="Craft" <?php if ($categoryFilter == 'Craft') echo 'selected'; ?>>Craft</option>
                             </select>
                         </div>
-                        <div class="form-group col-md-3 align-self-end">
+                        <div class="form-group col-md-3 col-sm-3 col-4 align-self-end">
                             <button type="submit" class="btn btn-primary">Apply Filters</button>
                         </div>
-                        <div class="form-group col-md-2 ">
+                        <div class="form-group col-md-2 col-sm-1">
                             
                         </div>
-                        <div class="form-group col-md-3">
+                        <div class="form-group col-md-3 col-sm-4">
                             <label for="searchTerm">Search</label>
                             <input type="text" id="searchTerm" name="search" class="form-control" value="<?php echo $searchTerm; ?>" placeholder="Search...">
                         </div>  
@@ -187,16 +188,30 @@ $result = $conn->query($sql);
             while($row = $result->fetch_assoc()) {
                 ?>
                 <div class="col-md-4 text-center">
-                    <div class="card mb-1">
-                        <img src="<?php echo $row["image"]; ?>" class="card-img-top" alt="Sample Image" style="width: auto; height: 120px;">
+                    <div class="card mb-3">
+                        <img src="<?php echo $row["image"]; ?>" class="card-img-top" alt="Sample Image" style="width: auto; height: 150px;">
                         <div class="card-body">
                             <h5 class="card-title"><?php echo $row["name"]; ?></h5>
                             <h6 class="card-subtitle mb-2 text-muted"><?php echo $row["category"]; ?></h6>
-                            <p class="card-text"><strong>Size:</strong> <?php echo $row["size"]; ?></p>
-                            <p class="card-text"><strong>Contact:</strong> <?php echo $row["contact"]; ?></p>
+                            <p class="card-text mb-0"><strong>Size:</strong> <?php echo $row["size"]; ?></p>
+                            <p class="card-text mb-0"><strong>Contact:</strong> <?php echo $row["contact"]; ?></p>
                             <p class="card-text"><strong>Description:</strong> <?php echo $row["description"]; ?></p>
-                            <button class="btn btn-primary"><a href="request_details.php?request_id=<?php echo $row['id']; ?>" style="color: #fff; text-decoration: none;">View Details</a></button>
-                            <button class="btn btn-primary" onclick="offerRequest()">Take Request</button>
+                            <div class="row">
+                                <div class="col-6 mb-1">
+                                    <button class="btn btn-primary" data-toggle="tooltip" title="View Details">
+                                        <a href="request_details.php?request_id=<?php echo $row['id']; ?>" style="color: #fff; text-decoration: none;">
+                                            <i class="fas fa-eye"></i>
+                                        </a>
+                                    </button>
+                                </div>
+                                <div class="col-6 mb-1">
+                                    <button class="btn btn-primary" data-toggle="tooltip" title="Take Request">
+                                        <i class="fas fa-handshake"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            
                         </div>
                     </div>
                 </div>
@@ -324,6 +339,11 @@ $result = $conn->query($sql);
     
 
 <script>
+    <!-- Initialize tooltips -->
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();   
+    });
+
 function offerRequest() {
     $('#offerModal').modal('show');
 }
