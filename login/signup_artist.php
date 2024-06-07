@@ -49,7 +49,79 @@
                                 <a class="navbar-text ml-auto mb-0" href="signup-selectrole.php"><i class="fas fa-arrow-left"></i> Back to Role Selection</a>
                             </div>
                         </div>
-                        <form id="signupForm" action="signup_processing.php" method="POST">
+                        <form id="signupForm" method="POST">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-6 mb-0">
+                                        <label for="userType">Select User Type</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <!-- Button trigger modal -->
+                                <div class="btn btn-primary float-right mb-1" data-toggle="modal" data-target="#roleSelectionModal">
+    <i class="fas fa-info-circle"></i> <!-- Font Awesome info icon -->
+</div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Modal -->
+                                <div class="modal fade" id="roleSelectionModal" tabindex="-1" role="dialog" aria-labelledby="roleSelectionModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-xl" role="document">
+                                    <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="roleSelectionModalLabel">Select a Role</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <h6 class="mb-3 mx-3">Select a role that you want to become part of:</h6>
+                                        <div class="row">
+                                            <!-- Your role cards here -->
+                                            <!-- Example Card -->
+                                            <!-- Patron Card -->
+                                            <div class="col-md-4">
+                                                <div class="card text-center" onclick="selectRole('card1')" style="background-color: #E8E4C9;">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Patron</h5>
+                                                        <p class="card-text">Patrons, also known as Art Enthusiasts, are individuals who have a keen interest in supporting and promoting the arts. They provide financial support, commissions, and opportunities for artists to create and showcase their work.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Artist Card -->
+                                            <div class="col-md-4">
+                                                <div class="card text-center" onclick="selectRole('card2')" style="background-color: #E8E4C9;">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Artist</h5>
+                                                        <p class="card-text mb-4">Artists are creative individuals who produce visual, performing, or literary artworks. They fulfill commissions, engage with potential students, and communicate ideas, emotions, and perspectives through their creations.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Mentor Card -->
+                                            <div class="col-md-4">
+                                                <div class="card text-center" onclick="selectRole('card3')" style="background-color: #E8E4C9;">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Mentor</h5>
+                                                        <p class="card-text">Mentors are experienced individuals who provide guidance, support, and instruction to aspiring artists. They offer mentorship programs, workshops, and constructive feedback to aid in artistic growth and professional development.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Add more role cards as needed -->
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>
+                                <select class="form-control" id="userType" name="userType" required>
+                                    <option value="" selected disabled>Select user type</option>
+                                    <option value="Artist">Artist</option>
+                                    <option value="Patron">Patron</option>
+                                    <option value="Mentor">Mentor</option>
+                                    <!-- Add more user types as needed -->
+                                </select>
+                            </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -61,29 +133,6 @@
                                     <div class="form-group">
                                         <label for="lastName">Last Name</label>
                                         <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Enter last name" required>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="middleName">Middle Name (optional)</label>
-                                        <input type="text" class="form-control" id="middleName" name="middleName" placeholder="Enter middle name">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="suffix">Suffix (optional)</label>
-                                        <select class="form-control" id="suffix" name="suffix">
-                                            <option value="" selected disabled>Select suffix</option>
-                                            <option value="Jr.">Jr.</option>
-                                            <option value="Sr.">Sr.</option>
-                                            <option value="II">II</option>
-                                            <option value="III">III</option>
-                                            <option value="IV">IV</option>
-                                            <option value="V">V</option>
-                                            <!-- Add more options as needed -->
-                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -128,39 +177,22 @@
                                         <input type="number" class="form-control" id="contactNo" name="contactNo" placeholder="Enter contact number" required>
                                     </div>
                                 </div>
-
-                            </div>
-                            <div class="form-group">
-                                <label for="idType">Type of ID</label>
-                                <select class="form-control" id="idType" name="idType" required onchange="toggleIdInputs()">
-                                    <option value="" selected disabled>Select type of ID</option>
-                                    <option value="Student ID">Student ID</option>
-                                    <option value="Driver's License">Driver's License</option>
-                                    <option value="Passport">Passport</option>
-                                    <option value="Others">Others</option>
-                                </select>
                             </div>
                             <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group" id="idNumberInput">
-                                        <label for="idNumber">ID Number</label>
-                                        <input type="text" class="form-control" id="idNumber" name="idNumber" placeholder="Enter ID Number" required>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="address">Address</label>
+                                        <input type="text" class="form-control" id="address" name="address" placeholder="Enter your address" required>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group" id="idImageInput">
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
                                         <label for="idImage">Upload Valid ID Image</label>
                                         <input type="file" class="form-control-file" id="idImage" name="idImage" accept="image/*" required>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="form-group" id="otherIdInput" style="display: none;">
-                                <label for="otherId">Other Type of ID</label>
-                                <input type="text" class="form-control" id="otherId" name="otherId" placeholder="Enter other ID description">
-                                <label for="otherIdNumber">ID Number</label>
-                                <input type="text" class="form-control" id="otherIdNumber" name="otherIdNumber" placeholder="Enter ID Number">
-                                <label for="otherIdImage">Upload Valid ID Image</label>
-                                <input type="file" class="form-control-file" id="otherIdImage" name="otherIdImage" accept="image/*" required>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
@@ -197,132 +229,130 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <!-- Include SweetAlert library -->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-<script>
-    // Function to check if all required fields are filled up
-    function areFieldsFilled() {
-        var firstName = document.getElementById("firstName").value;
-        var lastName = document.getElementById("lastName").value;
-        var gender = document.getElementById("gender").value;
-        var birthday = document.getElementById("birthday").value;
-        var email = document.getElementById("email").value;
-        var contactNo = document.getElementById("contactNo").value;
-        var idType = document.getElementById("idType").value;
-        var password = document.getElementById("password").value;
-        var confirmPassword = document.getElementById("confirmPassword").value;
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script>
+        // Function to check if all required fields are filled up
+        function areFieldsFilled() {
+            var firstName = document.getElementById("firstName").value;
+            var lastName = document.getElementById("lastName").value;
+            var gender = document.getElementById("gender").value;
+                var birthday = document.getElementById("birthday").value;
+                var email = document.getElementById("email").value;
+                var contactNo = document.getElementById("contactNo").value;
+                var address = document.getElementById("address").value;
+                var idImage = document.getElementById("idImage").value;
+                var password = document.getElementById("password").value;
+                var confirmPassword = document.getElementById("confirmPassword").value;
 
-        // Check if any required field is empty
-        if (firstName === "" || lastName === "" || gender === "" || birthday === "" || email === "" || contactNo === "" || idType === "" || password === "" || confirmPassword === "") {
-            return false; // Not all required fields are filled up
-        }
-        return true; // All required fields are filled up
-    }
-
-    // Function to calculate age based on birthday
-    function calculateAge() {
-        var birthday = document.getElementById("birthday").value;
-        if (birthday) {
-            var today = new Date();
-            var birthDate = new Date(birthday);
-            var age = today.getFullYear() - birthDate.getFullYear();
-            var m = today.getMonth() - birthDate.getMonth();
-            if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-                age--;
+                // Check if any required field is empty
+                if (firstName === "" || lastName === "" || gender === "" || birthday === "" || email === "" || contactNo === "" || address === "" || idImage === "" || password === "" || confirmPassword === "") {
+                    return false; // Not all required fields are filled up
+                }
+                return true; // All required fields are filled up
             }
-            document.getElementById("age").value = age;
-        }
-    }
 
-    // Add event listener for birthday change
-    document.getElementById("birthday").addEventListener("change", calculateAge);
-    
-    // Function to handle Sign Up button click
-    function handleSignUp(event) {
-        event.preventDefault(); // Prevent form submission
+            // Function to calculate age based on birthday
+            function calculateAge() {
+                var birthday = document.getElementById("birthday").value;
+                if (birthday) {
+                    var today = new Date();
+                    var birthDate = new Date(birthday);
+                    var age = today.getFullYear() - birthDate.getFullYear();
+                    var m = today.getMonth() - birthDate.getMonth();
+                    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+                        age--;
+                    }
+                    document.getElementById("age").value = age;
+                }
+            }
 
-        if (areFieldsFilled()) {
-            // Show SweetAlert for successful sign up
-            Swal.fire({
-                icon: 'success',
-                title: 'Sign Up Successful!',
-                text: 'Thank you for signing up with Xywinard.',
-                showConfirmButton: false,
-                timer: 2000 // Automatically close after 2 seconds
+            // Add event listener for birthday change
+            document.getElementById("birthday").addEventListener("change", calculateAge);
+            
+            // Function to handle Sign Up button click
+            function handleSignUp(event) {
+                event.preventDefault(); // Prevent form submission
+
+                if (areFieldsFilled()) {
+                    // Show SweetAlert for successful sign up
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Sign Up Successful!',
+                        text: 'Thank you for signing up with Xywinard.',
+                        showConfirmButton: false,
+                        timer: 2000 // Automatically close after 2 seconds
+                    });
+                } else {
+                    // Show SweetAlert for empty required fields
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Please fill in all required fields before signing up!',
+                    });
+                }
+            }
+
+            // Add event listener for Sign Up button click
+            document.querySelector("#signupForm button[type='submit']").addEventListener("click", handleSignUp);
+
+            // Add event listener for input event on contact number field
+            document.getElementById("contactNo").addEventListener("input", function() {
+                if (this.value.length > 11) {
+                    // Limit to 11 characters
+                    this.value = this.value.slice(0, 11);
+                    // Show SweetAlert for contact number error
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Please enter only 11 digits for the contact number!',
+                    });
+                }
             });
-        } else {
-            // Show SweetAlert for empty required fields
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Please fill in all required fields before signing up!',
-            });
-        }
-    }
 
-    // Add event listener for Sign Up button click
-    document.querySelector("#signupForm button[type='submit']").addEventListener("click", handleSignUp);
+            // Function to handle input event on first name and last name fields
+            function handleNameInput() {
+                var firstName = document.getElementById("firstName");
+                var lastName = document.getElementById("lastName");
+                var maxLength = 50; // Max length for first name and last name
+                
+                // Check if first name exceeds max length
+                if (firstName.value.length > maxLength) {
+                    // Truncate first name to max length
+                    firstName.value = firstName.value.slice(0, maxLength);
+                    // Show SweetAlert for first name error
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Please enter a maximum of ' + maxLength + ' characters for the first name!',
+                    });
+                }
+            }
 
-    // Add event listener for input event on contact number field
-    document.getElementById("contactNo").addEventListener("input", function() {
-        if (this.value.length > 11) {
-            // Limit to 11 characters
-            this.value = this.value.slice(0, 11);
-            // Show SweetAlert for contact number error
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Please enter only 11 digits for the contact number!',
-            });
-        }
-    });
+            // Add event listeners for input event on first name and last name fields
+            document.getElementById("firstName").addEventListener("input", handleNameInput);
+            document.getElementById("lastName").addEventListener("input", handleNameInput);
 
-    // Function to handle input event on first name and last name fields
-    function handleNameInput() {
-        var firstName = document.getElementById("firstName");
-        var lastName = document.getElementById("lastName");
-        var maxLength = 50; // Max length for first name and last name
-        
-        // Check if first name exceeds max length
-        if (firstName.value.length > maxLength) {
-            // Truncate first name to max length
-            firstName.value = firstName.value.slice(0, maxLength);
-            // Show SweetAlert for first name error
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Please enter a maximum of ' + maxLength + ' characters for the first name!',
-            });
-        }
-    }
+            // Function to toggle ID inputs based on selected type
+            function toggleIdInputs() {
+                var idType = document.getElementById("idType").value;
+                var idImageInput = document.getElementById("idImageInput");
+                var otherIdInput = document.getElementById("otherIdInput");
 
-    // Add event listeners for input event on first name and last name fields
-    document.getElementById("firstName").addEventListener("input", handleNameInput);
-    document.getElementById("lastName").addEventListener("input", handleNameInput);
+                if (idType === "Others") {
+                    idImageInput.style.display = "none";
+                    otherIdInput.style.display = "block";
+                } else {
+                    idImageInput.style.display = "block";
+                    otherIdInput.style.display = "none";
+                }
+            }
 
-    // Function to toggle ID inputs based on selected type
-    function toggleIdInputs() {
-        var idType = document.getElementById("idType").value;
-        var idNumberInput = document.getElementById("idNumberInput");
-        var idImageInput = document.getElementById("idImageInput");
-        var otherIdInput = document.getElementById("otherIdInput");
+            // Add event listener for ID type change
+            document.getElementById("idType").addEventListener("change", toggleIdInputs);
 
-        if (idType === "Others") {
-            idNumberInput.style.display = "none";
-            idImageInput.style.display = "none";
-            otherIdInput.style.display = "block";
-        } else {
-            idNumberInput.style.display = "block";
-            idImageInput.style.display = "block";
-            otherIdInput.style.display = "none";
-        }
-    }
+            // Initial call to toggle ID inputs based on default selected type
+            toggleIdInputs();
+        </script>
 
-    // Add event listener for ID type change
-    document.getElementById("idType").addEventListener("change", toggleIdInputs);
-
-    // Initial call to toggle ID inputs based on default selected type
-    toggleIdInputs();
-</script>
-
-</body>
-</html>
+    </body>
+    </html>

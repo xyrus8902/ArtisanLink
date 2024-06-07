@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     header("Location: patron_dashboard.php");
                     break;
                 case 'artist':
-                    header("Location: artist_dashboard.php");
+                    header("Location: ../Pages/artist/artist_profile.php");
                     break;
                 case 'mentor':
                     header("Location: mentor_dashboard.php");
@@ -81,12 +81,8 @@ $conn->close();
         }
         
         body {
-        background-image: url('bg.jpg');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-attachment: fixed; /* Keeps the background fixed while scrolling */
-        font-size: 14px;
+            background-color: #eae7e6;
+            font-size: 12px;
     }
     </style>
 </head>
