@@ -12,11 +12,12 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Check connection
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+    error_log("Connection failed: " . $conn->connect_error);
+    die("Connection failed. Please try again later.");
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = $_POST['email'];
+    $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
     $password = $_POST['password'];
 
     // Prepare and bind
@@ -31,6 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if (password_verify($password, $hashed_password)) {
             // Password is correct, set session and redirect based on role
+            session_regenerate_id(true); // Regenerate session ID to prevent session fixation
             $_SESSION['user_id'] = $id;
             $_SESSION['role'] = $role;
 
@@ -83,7 +85,7 @@ $conn->close();
         body {
             background-color: #eae7e6;
             font-size: 12px;
-    }
+        }
     </style>
 </head>
 <body>
@@ -119,7 +121,7 @@ $conn->close();
                             <a href="#">Forgot your password?</a>
                         </div>
                         <div class="text-center mt-3">
-                            <p>Don't have an account? <a href="signup-selectrole.php">Sign Up</a></p>
+                            <p>Don't have an account? <a href="signup.php">Sign Up</a></p>
                         </div>
                     </div>
                 </div>

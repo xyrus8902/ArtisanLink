@@ -39,6 +39,9 @@ $result = $conn->query($sql);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simplePagination.js/1.6/simplePagination.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        * {
+            font-size: 14px;
+        }
         body {
             font-size: 12px;
             background-color: #eae7e6;
@@ -198,16 +201,10 @@ $result = $conn->query($sql);
                             <p class="card-text"><strong>Description:</strong> <?php echo $row["description"]; ?></p>
                             <div class="row">
                                 <div class="col-6 mb-1">
-                                    <button class="btn btn-primary" data-toggle="tooltip" title="View Details">
-                                        <a href="request_details.php?request_id=<?php echo $row['id']; ?>" style="color: #fff; text-decoration: none;">
-                                            <i class="fas fa-eye"></i>
-                                        </a>
-                                    </button>
+                                    <button class="btn btn-primary"><a href="request_details.php?request_id=<?php echo $row['id']; ?>" style="color: #fff; text-decoration: none;"><i class="fas fa-eye"></i> View Details</a></button>
                                 </div>
                                 <div class="col-6 mb-1">
-                                    <button class="btn btn-primary" data-toggle="tooltip" title="Take Request">
-                                        <i class="fas fa-handshake"></i>
-                                    </button>
+                                    <button class="btn btn-primary" onclick="offerRequest()"><i class="fas fa-handshake"></i> Take Request</button>
                                 </div>
                             </div>
                             
@@ -339,11 +336,6 @@ $result = $conn->query($sql);
     
 
 <script>
-    <!-- Initialize tooltips -->
-    $(document).ready(function(){
-        $('[data-toggle="tooltip"]').tooltip();   
-    });
-
 function offerRequest() {
     $('#offerModal').modal('show');
 }
