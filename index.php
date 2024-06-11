@@ -1,3 +1,51 @@
+<?php
+// Database connection
+$servername = "localhost";
+$username = "root"; // Change this to your database username
+$password = ""; // Change this to your database password
+$dbname = "artisan_link";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $name = $conn->real_escape_string($_POST['name']);
+    $email = $conn->real_escape_string($_POST['email']);
+    $message = $conn->real_escape_string($_POST['message']);
+
+    $sql = "INSERT INTO messages (name, email, message) VALUES ('$name', '$email', '$message')";
+
+    if ($conn->query($sql) === TRUE) {
+        echo "<script>
+                setTimeout(function() {
+                    swal({
+                        title: 'Success!',
+                        text: 'Your message has been sent.',
+                        type: 'success'
+                    }, function() {
+                        window.location = window.location.href;
+                    });
+                }, 100);
+              </script>";
+    } else {
+        echo "<script>
+                setTimeout(function() {
+                    swal({
+                        title: 'Error!',
+                        text: 'There was an error sending your message.',
+                        type: 'error'
+                    });
+                }, 100);
+              </script>";
+    }
+}
+
+$conn->close();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,8 +54,14 @@
     <title>ArtisanLink - Arts and Communications Platform</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+     <!-- Include SweetAlert CSS -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
 
     <style>
+        * {
+            font-size: 14px;
+            font-family: 'Roboto', sans-serif;
+        }
         body {
             background-color: #f8f9fa; /* Light gray background */
             font-size: 14px;
@@ -35,7 +89,7 @@
                         <a class="nav-link" href="#about">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
+                        <a class="nav-link" href="#messageus">Message Us</a>
                     </li>
                     <li class="nav-item mx-5">
                         <a class="nav-link btn btn-sm btn-danger text-white" href="login/signin.php">Sign In</a>
@@ -168,7 +222,43 @@
                 </div>
             </div>
         </div>
+    </div><hr>
+    <div id="messageus" class="container-fluid py-5" style="background-color: #f8f9fa;">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card border-0 shadow-lg">
+                <div class="card-body">
+                    <h2 class="card-title text-center mb-4">Message Us</h2>
+                    <form action="#" method="POST">
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" class="form-control" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message:</label>
+                            <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg w-100">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 shadow d-flex align-items-center justify-content-center">
+            <div class="text-center">
+                <img src="images/messageus.png" alt="">
+                <p class="lead mb-0">Have any questions, suggestions or feedback?</p>
+                <p class="lead">We'd love to hear from you!</p>
+            </div>
+        </div>
     </div>
+</div>
+
+
+
 </div>
 
 
@@ -202,7 +292,10 @@
     </div>
     </footer>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <!-- Include SweetAlert JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body
+    </body>
+    </html>
