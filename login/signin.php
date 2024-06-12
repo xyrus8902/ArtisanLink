@@ -40,34 +40,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['user_role'] = $user['role'];
 
             // Redirect to the appropriate dashboard based on user's role
+            $redirect_url = '';
             switch ($user['role']) {
                 case 'patron':
-                    echo "<script>window.location.href = '../Pages/patron/patron_profile.php';</script>";
-                    exit();
+                    $redirect_url = '../Pages/patron/patron_profile.php';
+                    break;
                 case 'artist':
-                    echo "<script>window.location.href = '../Pages/artist/artist_profile.php';</script>";
-                    exit();
+                    $redirect_url = '../Pages/artist/artist_profile.php';
+                    break;
                 case 'mentor':
-                    echo "<script>window.location.href = '../Pages/mentor/mentor_profile.php';</script>";
-                    exit();
+                    $redirect_url = '../Pages/mentor/mentor_profile.php';
+                    break;
                 case 'admin':
-                    echo "<script>window.location.href = '../Pages/admin/admin_profile.php';</script>";
-                    exit();
+                    $redirect_url = '../Pages/admin/admin_profile.php';
+                    break;
                 case 'staff':
-                    echo "<script>window.location.href = '../Pages/staff/staff_profile.php';</script>";
-                    exit();
+                    $redirect_url = '../Pages/staff/staff_profile.php';
+                    break;
                 default:
-                    // Redirect to a default dashboard or homepage if role is unknown
-                    echo "<script>window.location.href = 'default_home.php';</script>";
-                    exit();
+                    $redirect_url = 'default_home.php';
             }
+            echo "<script>window.location.href = '$redirect_url';</script>";
+            exit();
         } else {
             // Incorrect password
-            echo "<script>alert('Invalid password!');</script>";
+            echo "<script>swal('Error', 'Invalid password!', 'error');</script>";
         }
     } else {
         // User not found
-        echo "<script>alert('User not found!');</script>";
+        echo "<script>swal('Error', 'User not found!', 'error');</script>";
     }
     $stmt->close();
 }
