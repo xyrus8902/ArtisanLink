@@ -1,4 +1,4 @@
-<!-- navbar.php -->
+<!-- patron_header.php -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container-fluid">
         <a class="navbar-brand mx-5" href="index.html">ArtisanLink</a>
@@ -8,33 +8,34 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav" style="padding-left: 50px;">
                 <li class="nav-item">
-                    <a class="nav-link" href="artist_profile.php">My Profile</a>
+                    <a class="nav-link" href="patron_profile.php">My Profile</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="artist_patronage.php">Patronage</a>
+                    <a class="nav-link" href="patron_artists.php">Artists</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="artist_system_updates.php">Pending Offers</a>
+                    <a class="nav-link" href="patron_my_offers.php">My Offers</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="artist_mentor_offers.php">Mentor Offers</a>
+                    <a class="nav-link" href="patron_messages.php">Messages</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="artist_my_courses.php">My Courses</a>
+                    <a class="nav-link" href="patron_favorites.php">Favorites</a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <?php
-                        $profile_picture = isset($user['profile_picture']) ? $user['profile_picture'] : '../../uploads/defaultpic.png';
+                        $profile_picture_path = '../../uploads/';
+                        $default_picture = 'default_profile.png';
+                        $profile_picture = !empty($user['profile_picture']) ? $profile_picture_path . htmlspecialchars($user['profile_picture']) : $profile_picture_path . $default_picture;
                         ?>
-                        <img src="<?php echo '../uploads/' . htmlspecialchars($profile_picture); ?>" class="rounded-circle mr-2" style="width: 30px; height: 30px;" alt="Profile Image">
-                        <?php echo htmlspecialchars($user['lastName']) . ' (' . htmlspecialchars($user['role']) . ')'; ?>
+                        <img src="<?php echo $profile_picture; ?>" class="rounded-circle mr-2" style="width: 30px; height: 30px;" alt="Profile Image"><?php echo htmlspecialchars($user['firstName'] . ' ' . $user['lastName']); ?> (Patron)
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Edit Profile</a>
-                        <a class="dropdown-item" href="#">Help Desk</a>
+                        <a class="dropdown-item" href="edit_profile.php">Edit Profile</a>
+                        <a class="dropdown-item" href="help_desk.php">Help Desk</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="../../logout.php">Logout</a>
                     </div>

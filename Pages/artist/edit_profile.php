@@ -39,7 +39,41 @@ if (!$user) {
 
 // Handle form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Validate and update user data
+    // Handle profile picture upload
+    if ($_FILES['profilePicture']['size'] > 0) {
+        $targetDir = "../../uploads/";
+        $fileName = basename($_FILES["profilePicture"]["name"]);
+        $targetFilePath = $targetDir . $fileName;
+        $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION);
+
+        // Validate file type
+        $allowedTypes = array('jpg', 'jpeg', 'png', 'gif');
+        if (!in_array($fileType, $allowedTypes)) {
+            die("Error: Only JPG, JPEG, PNG, GIF files are allowed.");
+        }
+
+        // Upload file to server
+        if (move_uploaded_file($_FILES["profilePicture"]["tmp_name"], $targetFilePath)) {
+            // Update profile picture path in the database
+            $profilePicture = $targetFilePath;
+
+            $stmt = $conn->prepare("UPDATE users SET profile_picture = ? WHERE id = ?");
+            if ($stmt === false) {
+                die("Prepare failed: " . $conn->error);
+            }
+
+            $stmt->bind_param("si", $profilePicture, $user_id);
+            $stmt->execute();
+            $stmt->close();
+
+            // Update $user variable to reflect new profile picture path
+            $user['profile_picture'] = $profilePicture;
+        } else {
+            die("Error uploading file.");
+        }
+    }
+
+    // Continue updating other user data
     $firstName = $_POST['firstName'];
     $lastName = $_POST['lastName'];
     $gender = $_POST['gender'];
@@ -48,10 +82,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $address = $_POST['address'];
     $occupation = $_POST['occupation'];
     $education_background = $_POST['education_background'];
-    $languages_spoken = $_POST['languages_spoken'];
-    $hobbies_interests = $_POST['hobbies_interests'];
+    $languages_spoken = implode(',', $_POST['languages_spoken'] ?? []);
+    $hobbies_interests = implode(',', $_POST['hobbies_interests'] ?? []);
     $achievements = $_POST['achievements'];
-    $art_style = $_POST['art_style'];
+    $art_style = implode(',', $_POST['art_style'] ?? []);
     $exhibitions_exposures = $_POST['exhibitions_exposures'];
     $bio = $_POST['bio'];
 
@@ -94,6 +128,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             margin-bottom: 20px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
+        .profile-picture {
+            max-width: 200px;
+            max-height: 200px;
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
@@ -103,84 +142,131 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="profile-header">
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <h2>Edit Profile</h2>
+                    <h2>Edit Profile</h2> <hr>
                 </div>
             </div>
-        </div>
 
         <div class="row">
-            <div class="col-md-6 offset-md-3">
-                <form method="POST">
-                    <div class="form-group">
-                        <label for="firstName">First Name:</label>
-                        <input type="text" class="form-control" id="firstName" name="firstName" value="<?php echo htmlspecialchars($user['firstName']); ?>">
+            <div class="col-md-3">
+                <form method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="profilePicture">Profile Picture:</label><br>
+                        <?php if (!empty($user['profile_picture'])): ?>
+                        <img src="<?php echo '../uploads/' . htmlspecialchars($user['profile_picture']); ?>" alt="Profile Picture" class="profile-picture"><br>
+                        <?php else: ?>
+                        <img src="../../uploads/defaultpic.png" alt="Default Profile Picture" class="profile-picture"><br>
+                        <?php endif; ?>
+                        <input type="file" class="form-control-file" id="profilePicture" name="profilePicture">
+                </div>
+            </div>
+            <div class="col-md-2">
+
+            </div>
+            <div class="col-sm-7">
+                <div class="form-group">
+                    <label for="firstName">First Name:</label>
+                    <input type="text" class="form-control" id="firstName" name="firstName" value="<?php echo htmlspecialchars($user['firstName']); ?>">
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name:</label>
+                    <input type="text" class="form-control" id="lastName" name="lastName" value="<?php echo htmlspecialchars($user['lastName']); ?>">
+                </div>
+                <div class="form-group">
+                    <label for="gender">Gender:</label>
+                    <input type="text" class="form-control" id="gender" name="gender" value="<?php echo htmlspecialchars($user['gender']); ?>">
+                </div>
+                <div class="form-group">
+                    <label for="birthday">Birthday:</label>
+                    <input type="text" class="form-control" id="birthday" name="birthday" value="<?php echo htmlspecialchars($user['birthday']); ?>">
+                </div>
+                <div class="form-group">
+                    <label for="contact">Contact:</label>
+                    <input type="text" class="form-control" id="contact" name="contact" value="<?php echo htmlspecialchars($user['contact']); ?>">
+                </div>
+                <div class="form-group">
+                    <label for="address">Address:</label>
+                    <input type="text" class="form-control" id="address" name="address" value="<?php echo htmlspecialchars($user['address']); ?>">
+                </div>
+                <div class="form-group">
+                    <label for="occupation">Occupation:</label>
+                    <input type="text" class="form-control" id="occupation" name="occupation" value="<?php echo htmlspecialchars($user['occupation']); ?>">
+                </div>
+                <div class="form-group">
+                    <label for="education_background">Education Background:</label>
+                    <input type="text" class="form-control" id="education_background" name="education_background" value="<?php echo htmlspecialchars($user['education_background']); ?>">
+                </div>
+
+                <div class="form-group">
+                    <label for="languages_spoken">Languages Spoken:</label><br>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="english" name="languages_spoken[]" value="English" <?php echo in_array('English', explode(',', $user['languages_spoken'])) ? 'checked' : ''; ?>>
+                        <label class="form-check-label" for="english">English</label>
                     </div>
-                    <div class="form-group">
-                        <label for="lastName">Last Name:</label>
-                        <input type="text" class="form-control" id="lastName" name="lastName" value="<?php echo htmlspecialchars($user['lastName']); ?>">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="spanish" name="languages_spoken[]" value="Spanish" <?php echo in_array('Spanish', explode(',', $user['languages_spoken'])) ? 'checked' : ''; ?>>
+                        <label class="form-check-label" for="spanish">Spanish</label>
                     </div>
-                    <div class="form-group">
-                        <label for="gender">Gender:</label>
-                        <input type="text" class="form-control" id="gender" name="gender" value="<?php echo htmlspecialchars($user['gender']); ?>">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="french" name="languages_spoken[]" value="French" <?php echo in_array('French', explode(',', $user['languages_spoken'])) ? 'checked' : ''; ?>>
+                        <label class="form-check-label" for="french">French</label>
                     </div>
-                    <div class="form-group">
-                        <label for="birthday">Birthday:</label>
-                        <input type="text" class="form-control" id="birthday" name="birthday" value="<?php echo htmlspecialchars($user['birthday']); ?>">
+                </div>
+
+                <div class="form-group">
+                    <label for="hobbies_interests">Hobbies/Interests:</label><br>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="painting" name="hobbies_interests[]" value="Painting" <?php echo in_array('Painting', explode(',', $user['hobbies_interests'])) ? 'checked' : ''; ?>>
+                        <label class="form-check-label" for="painting">Painting</label>
                     </div>
-                    <div class="form-group">
-                        <label for="contact">Contact:</label>
-                        <input type="text" class="form-control" id="contact" name="contact" value="<?php echo htmlspecialchars($user['contact']); ?>">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="drawing" name="hobbies_interests[]" value="Drawing" <?php echo in_array('Drawing', explode(',', $user['hobbies_interests'])) ? 'checked' : ''; ?>>
+                        <label class="form-check-label" for="drawing">Drawing</label>
                     </div>
-                    <div class="form-group">
-                        <label for="address">Address:</label>
-                        <input type="text" class="form-control" id="address" name="address" value="<?php echo htmlspecialchars($user['address']); ?>">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="photography" name="hobbies_interests[]" value="Photography" <?php echo in_array('Photography', explode(',', $user['hobbies_interests'])) ? 'checked' : ''; ?>>
+                        <label class="form-check-label" for="photography">Photography</label>
                     </div>
-                    <div class="form-group">
-                        <label for="occupation">Occupation:</label>
-                        <input type="text" class="form-control" id="occupation" name="occupation" value="<?php echo htmlspecialchars($user['occupation']); ?>">
+                </div>
+
+                <div class="form-group">
+                    <label for="achievements">Achievements:</label>
+                    <textarea class="form-control" id="achievements" name="achievements"><?php echo htmlspecialchars($user['achievements']); ?></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="art_style">Art Style:</label><br>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="abstract" name="art_style[]" value="Abstract" <?php echo in_array('Abstract', explode(',', $user['art_style'])) ? 'checked' : ''; ?>>
+                        <label class="form-check-label" for="abstract">Abstract</label>
                     </div>
-                    <div class="form-group">
-                        <label for="education_background">Education Background:</label>
-                        <input type="text" class="form-control" id="education_background" name="education_background" value="<?php echo htmlspecialchars($user['education_background']); ?>">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="realism" name="art_style[]" value="Realism" <?php echo in_array('Realism', explode(',', $user['art_style'])) ? 'checked' : ''; ?>>
+                        <label class="form-check-label" for="realism">Realism</label>
                     </div>
-                    <div class="form-group">
-                        <label for="languages_spoken">Languages Spoken:</label>
-                        <input type="text" class="form-control" id="languages_spoken" name="languages_spoken" value="<?php echo htmlspecialchars($user['languages_spoken']); ?>">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="impressionism" name="art_style[]" value="Impressionism" <?php echo in_array('Impressionism', explode(',', $user['art_style'])) ? 'checked' : ''; ?>>
+                        <label class="form-check-label" for="impressionism">Impressionism</label>
                     </div>
-                    <div class="form-group">
-                        <label for="hobbies_interests">Hobbies/Interests:</label>
-                        <input type="text" class="form-control" id="hobbies_interests" name="hobbies_interests" value="<?php echo htmlspecialchars($user['hobbies_interests']); ?>">
-                    </div>
-                    <div class="form-group">
-                        <label for="achievements">Achievements:</label>
-                        <input type="text" class="form-control" id="achievements" name="achievements" value="<?php echo htmlspecialchars($user['achievements']); ?>">
-                    </div>
-                    <div class="form-group">
-                        <label for="art_style">Art Style:</label>
-                        <input type="text" class="form-control" id="art_style" name="art_style" value="<?php echo htmlspecialchars($user['art_style']); ?>">
-                    </div>
-                    <div class="form-group">
-                        <label for="exhibitions_exposures">Exhibitions/Exposures:</label>
-                        <input type="text" class="form-control" id="exhibitions_exposures" name="exhibitions_exposures" value="<?php echo htmlspecialchars($user['exhibitions_exposures']); ?>">
-                    </div>
-                    <div class="form-group">
-                        <label for="bio">Bio:</label>
-                        <textarea class="form-control" id="bio" name="bio" rows="5"><?php echo htmlspecialchars($user['bio']); ?></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                </div>
+
+                <div class="form-group">
+                    <label for="exhibitions_exposures">Exhibitions/Exposures:</label>
+                    <textarea class="form-control" id="exhibitions_exposures" name="exhibitions_exposures"><?php echo htmlspecialchars($user['exhibitions_exposures']); ?></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="bio">Bio:</label>
+                    <textarea class="form-control" id="bio" name="bio"><?php echo htmlspecialchars($user['bio']); ?></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Save Changes</button>
                 </form>
             </div>
-        </div>
+        </div>                
     </div>
-
-    <?php include '../../header/footer.php'; ?>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
-
-<?php
-$conn->close();
-?>
