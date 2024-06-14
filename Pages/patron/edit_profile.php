@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['user_id']) || $_SESSION['user_role'] != 'artist') {
+if (!isset($_SESSION['user_id']) || $_SESSION['user_role'] != 'patron') {
     header("Location: ../index.php");
     exit();
 }
@@ -100,7 +100,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->close();
 
     // Redirect to profile page after updating
-    header("Location: artist_profile.php");
+    header("Location: patron_profile.php");
     exit();
 }
 ?>
@@ -136,7 +136,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </style>
 </head>
 <body>
-    <?php include '../../header/artist_header.php'; ?>
+    <?php include '../../header/patron_header.php'; ?>
 
     <div class="content container">
         <div class="profile-header">

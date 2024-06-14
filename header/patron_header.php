@@ -27,15 +27,14 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <?php
-                        $profile_picture_path = '../../uploads/';
-                        $default_picture = 'default_profile.png';
-                        $profile_picture = !empty($user['profile_picture']) ? $profile_picture_path . htmlspecialchars($user['profile_picture']) : $profile_picture_path . $default_picture;
+                        $profile_picture = isset($user['profile_picture']) ? $user['profile_picture'] : '../../uploads/defaultpic.png';
                         ?>
-                        <img src="<?php echo $profile_picture; ?>" class="rounded-circle mr-2" style="width: 30px; height: 30px;" alt="Profile Image"><?php echo htmlspecialchars($user['firstName'] . ' ' . $user['lastName']); ?> (Patron)
+                        <img src="<?php echo '../uploads/' . htmlspecialchars($profile_picture); ?>" class="rounded-circle mr-2" style="width: 30px; height: 30px;" alt="Profile Image">
+                        <?php echo htmlspecialchars($user['lastName']) . ' (' . htmlspecialchars($user['role']) . ')'; ?>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="edit_profile.php">Edit Profile</a>
-                        <a class="dropdown-item" href="help_desk.php">Help Desk</a>
+                        <a class="dropdown-item" href="#">Edit Profile</a>
+                        <a class="dropdown-item" href="#">Help Desk</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="../../logout.php">Logout</a>
                     </div>

@@ -77,10 +77,14 @@ if (!$user) {
         <div class="profile-header">
             <div class="row">
                 <div class="col-lg-4 text-center">
-                    <img src="<?php echo '../uploads/' . htmlspecialchars($user['profile_picture']); ?>" class="rounded-circle shadow" alt="Profile Picture" style="width: 200px; height: 200px;">
-                <hr class="mb-0"></div> 
+                    <?php
+                    $profile_picture = isset($user['profile_picture']) ? $user['profile_picture'] : '../../uploads/defaultpic.png';
+                    ?>
+                    <img src="<?php echo '../uploads/' . htmlspecialchars($profile_picture); ?>" class="rounded-circle shadow" alt="Profile Picture" style="width: 150px; height: 150px;">
+                    <hr class="mb-0">
+                </div>
                 <div class="col-lg-5 pt-5">
-                    <h2 class="mt-3"><?php echo htmlspecialchars($user['firstName'] . ' ' . htmlspecialchars($user['lastName'])); ?> <span class="lead">(Patron)</span></h2>
+                    <h2 class="mt-3"><?php echo htmlspecialchars($user['firstName'] . ' ' . $user['lastName']); ?> <span class="lead">(Artist)</span></h2>
                     <p><strong>Bio:</strong> <?php echo htmlspecialchars($user['bio']); ?></p>
                 </div>
                 <div class="col-lg-3 d-flex flex-column justify-content-end">
